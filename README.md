@@ -1,0 +1,1 @@
+Recipe project of Guru Spring Framework course
