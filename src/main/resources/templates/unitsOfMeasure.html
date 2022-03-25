@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Units of Measure</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+        </tr>
+        <tr th:each="uom : ${uoms}">
+            <td th:text="${uom.id}">1</td>
+            <td th:text="${uom.description}">Cup</td>
+        </tr>
+    </table>
+</body>
+</html>
