@@ -38,6 +38,8 @@ public class Recipe {
     )
     private Set<Category> categories = new HashSet<>();
 
+    @Getter(value=AccessLevel.NONE)
+    @Setter(value=AccessLevel.NONE)
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
@@ -53,4 +55,12 @@ public class Recipe {
         return other instanceof Recipe;
     }
 
+    public Notes getNotes() {
+        return notes;
+    }
+
+    public void setNotes(Notes notes) {
+        this.notes = notes;
+        this.notes.setRecipe(this);
+    }
 }
