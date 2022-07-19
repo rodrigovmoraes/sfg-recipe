@@ -25,4 +25,11 @@ public class Notes {
         return other instanceof Notes;
     }
 
+    public String getRecipeNotesHtml() {
+        if (this.recipeNotes != null) {
+            return this.recipeNotes.replaceAll("\\n", "<br>");
+        } else {
+            return "";
+        }
+    }
 }

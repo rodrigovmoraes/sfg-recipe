@@ -8,6 +8,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.Assert.*;
@@ -23,6 +24,29 @@ public class RecipeServiceImplTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         recipeService = new RecipeServiceImpl(recipeRepository);
+    }
+
+    @Test
+    public void getRecipeById() throws Exception {
+        Long OWNER_ID = 2L;
+        Recipe returnRecipe = new Recipe();
+        returnRecipe.setId( OWNER_ID );
+        when( recipeRepository.findById(OWNER_ID) ).thenReturn( Optional.of(returnRecipe) );
+        Recipe recipe = recipeService.getRecipeById(OWNER_ID);
+        assertNotNull(recipe);
+        assertEquals(OWNER_ID, recipe.getId());
+        verify(recipeRepository, times(1)).findById( OWNER_ID );
+    }
+
+    @Test
+    public void getRecipeByIdNull() throws Exception {
+        Long OWNER_ID = 2L;
+        Recipe returnRecipe = new Recipe();
+        returnRecipe.setId( OWNER_ID );
+        when( recipeRepository.findById(OWNER_ID) ).thenReturn( Optional.empty() );
+        Recipe recipe = recipeService.getRecipeById(OWNER_ID);
+        assertNull(recipe);
+        verify(recipeRepository, times(1)).findById( OWNER_ID );
     }
 
     @Test

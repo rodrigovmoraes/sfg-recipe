@@ -63,4 +63,12 @@ public class Recipe {
         this.notes = notes;
         this.notes.setRecipe(this);
     }
+
+    public String getDirectionsHtml() {
+        if (this.directions != null) {
+            return this.directions.replaceAll("\\n", "<br>");
+        } else {
+            return "";
+        }
+    }
 }
