@@ -1,3 +1,5 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/rodrigovmoraes/sfg-recipe/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/rodrigovmoraes/sfg-recipe/tree/main)
+
 # Read Me First
 The following was discovered as part of building this project:
 
